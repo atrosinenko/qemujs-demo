@@ -1,0 +1,26 @@
+{
+  "i386": {
+    "name": "x86",
+    "args": ["-net", "none"],
+    "variants": {
+      "Kolibri OS (1.4 Mb)": {
+        "fda": "downloaded/kolibri.raw",
+        "description": "http://kolibrios.org/en/download"
+      },
+      "OpenWRT x86 (6.2 Mb)": {
+        "hda": "downloaded/openwrt-10.03.1-x86-generic-combined-squashfs.raw",
+        "description": "https://downloads.openwrt.org/, adjusted boot parameters"
+      }
+    }
+  },
+  "mips": {
+    "name": "MIPS (WIP, hangs)",
+    "args": ["-net", "none", "-vga", "none", "-monitor", "none", "-parallel", "none"],
+    "variants": {
+      "OpenWRT (3.8Mb, hangs at boot)": {
+        "kernel": "downloaded/openwrt-15.05.1-malta-be-vmlinux.elf",
+        "description": "https://downloads.openwrt.org/"
+      }
+    }
+  }
+}
