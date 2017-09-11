@@ -9,17 +9,19 @@
       },
       "OpenWRT x86 (6.2 Mb)": {
         "hda": "downloaded/openwrt-10.03.1-x86-generic-combined-squashfs.raw",
-        "description": "https://downloads.openwrt.org/, adjusted boot parameters"
+        "description": "https://downloads.openwrt.org/, adjusted boot parameters",
+        "misc": "-icount shift=auto -rtc clock=vm"
       }
     }
   },
   "mips": {
-    "name": "MIPS (WIP, hangs)",
+    "name": "MIPS",
     "args": ["-net", "none", "-vga", "none", "-monitor", "none", "-parallel", "none"],
     "variants": {
-      "OpenWRT (3.8Mb, hangs at boot)": {
-        "kernel": "downloaded/openwrt-15.05.1-malta-be-vmlinux.elf",
-        "description": "https://downloads.openwrt.org/"
+      "OpenWRT (3.8Mb)": {
+        "kernel": "downloaded/openwrt-15.05.1-malta-be-vmlinux-initramfs.elf",
+        "description": "https://downloads.openwrt.org/",
+        "misc": "-icount shift=auto -rtc clock=vm"
       }
     }
   }
