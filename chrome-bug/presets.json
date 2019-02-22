@@ -1,0 +1,47 @@
+{
+  "root": {
+    "_type": "select",
+    "_title": "QEMU target",
+    "x86": [
+      {
+        "js": "qemu-system-i386.js",
+        "emterpreter-bc": "qemu-system-i386.emterpreter",
+        "args": [
+          "-serial", "none",
+          "-parallel", "none",
+          "-monitor", "none"
+        ]
+      },
+      {
+        "_type": "checkbox",
+        "_title": "Dummy network",
+        "iftrue": {
+          "files": [ "efi-e1000.rom" ]
+        },
+        "iffalse": {
+          "args": [ "-net", "none", "-tb-size", "1"]
+        }
+      },
+      {
+        "files": [
+          "bios-256k.bin",
+          "vgabios-stdvga.bin",
+          "multiboot.bin",
+          "kvmvapic.bin"
+        ]
+      },
+      {
+        "_type": "select",
+        "_title": "OS",
+        "Memtest86+": {
+          "files": [ "memtest86+.elf" ],
+          "args": [ "-kernel", "memtest86+.elf"]
+        },
+        "OpenWRT": {
+          "files": [ "openwrt-18.06.0-rc2-x86-generic-vmlinuz", "linuxboot_dma.bin" ],
+          "args": [ "-kernel", "openwrt-18.06.0-rc2-x86-generic-vmlinuz" ]
+        }
+      }
+    ]
+  }
+}
